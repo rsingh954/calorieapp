@@ -1,4 +1,4 @@
-const API_KEY = 'UGmZY9ss0Ig2sM0eoBhEIhzJ7ihYmxtfI9lH8eyJ'
+const API_KEY = ''
 let data;
 
 async function findFood(q){
