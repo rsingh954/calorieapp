@@ -1,7 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const findFood= require('../api')
-// const fetch = require('node-fetch')
+//USE NODE-FETCH@2.6.1
+const fetch = require('node-fetch')
+
+
+const API_KEY = 'UGmZY9ss0Ig2sM0eoBhEIhzJ7ihYmxtfI9lH8eyJ'
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -9,9 +13,20 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/food', async function(req,res, next){
-  let d = await findFood
-  let a = new Promise(d)
-  console.log(a.then((b) => {return b.foods}))
+  const url ='https://api.nal.usda.gov/fdc/v1/foods/search?api_key='+`${API_KEY}`+'&query=cheese';
+  const options = {
+    'method': "GET"
+  };
+  const result = await fetch(url, options)
+    .then((r) => r.json())
+    .catch(e => {
+      console.error({
+      'message': "Oooops",
+       error: e
+      })
+    })
+  console.log("response:" , result)
+  res.json(result)
 })
 
 module.exports = router
