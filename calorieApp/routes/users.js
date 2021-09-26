@@ -8,9 +8,10 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/food', function(req,res, next){
-  console.log(findFood())
-  next()
+router.get('/food', async function(req,res, next){
+  let d = await findFood
+  let a = new Promise(d)
+  console.log(a.then((b) => {return b.foods}))
 })
 
 module.exports = router
