@@ -1,6 +1,6 @@
 const API_KEY = 'UGmZY9ss0Ig2sM0eoBhEIhzJ7ihYmxtfI9lH8eyJ'
 let data = [];
-
+const fetch = require('node-fetch')
 async function findFood(){
     try{
      let q = 'cheese'
@@ -12,3 +12,4 @@ async function findFood(){
     }
  }
 
+module.exports = findFood
