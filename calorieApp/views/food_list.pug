@@ -8,7 +8,7 @@ block content
   div.container
     each item, i in items
         div.panel
-          a.panel-heading.heading(href = '/catalog'+item.fdcId )  #{item.description}
+          a.panel-heading.heading(href = '/food'+item.fdcId )  #{item.description}
           h5 Made By: #{item.brandName}
           div.panel-body
           each n in item.foodNutrients

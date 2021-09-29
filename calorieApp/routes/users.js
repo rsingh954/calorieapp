@@ -1,11 +1,15 @@
 var express = require('express');
 var router = express.Router();
 //USE NODE-FETCH@2.6.1
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
+const { route } = require('.');
 const findFood = require('../api')
 
 const API_KEY = 'UGmZY9ss0Ig2sM0eoBhEIhzJ7ihYmxtfI9lH8eyJ'
 
+const items = {
+  name: "test"
+}
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -13,8 +17,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/food', async function(req,res, next){
-  
- const url ='https://api.nal.usda.gov/fdc/v1/foods/search?api_key='+`${API_KEY}`+'&query=cheese';
+  res.send("test")
+
+})
+
+
+router.get('/search', function(req, res, next){
+  res.render('input')
+})
+
+router.post('/search', async function(req, res, next){
+  const url ='https://api.nal.usda.gov/fdc/v1/foods/search?api_key='+`${API_KEY}`+'&query='+ `${req.body.name}`;
  const options = {
    'method': "GET"
  };
@@ -30,7 +43,5 @@ router.get('/food', async function(req,res, next){
    
     console.log("response:" , foods)
     res.render('food_list',{items: result.foods})
-
 })
-
 module.exports = router
