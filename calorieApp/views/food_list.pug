@@ -9,10 +9,9 @@ block content
     each item, i in items
         div.panel
           a.panel-heading.heading(href = 'food/'+item.fdcId )  #{item.description}
-          h5 Made By: #{item.brandName}
           div.panel-body
           each n in item.foodNutrients
-            if n.nutrientName == 'Energy' || n.nutrientName == 'Protein' || n.nutrientId == 1005 
+            if n.nutrientName == 'Energy' || n.nutrientName == 'Protein'   || n.nutrientId == 1005 
               h6.list-group-item #{n.nutrientName == 'Energy' ? "Calories" : n.nutrientId == 1005 ? 'Carbohydrates' : n.nutrientName} : #{n.value}      
           hr
 

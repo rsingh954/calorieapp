@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 //USE NODE-FETCH@2.6.1
 const fetch = require('node-fetch');
-let journal = []
+const journal = require('../helper/journal')
+require('dotenv').config()
 
-const API_KEY = 'UGmZY9ss0Ig2sM0eoBhEIhzJ7ihYmxtfI9lH8eyJ'
+const API_KEY = process.env.FOOD_API_KEY
 
 
 
@@ -26,13 +27,13 @@ router.post('/search', async function(req, res, next){
       error: e
      })
    })
-   const foods = result.foods;
-    console.log("response:" , foods)
+    const foods = result.foods;
     res.render('food_list',{items: result.foods})
 })
 
 //ITEM DETAIL PAGE
 router.get('/food/:id' ,function(req,res,next){
+
   res.render('item-detail')
 })
 
