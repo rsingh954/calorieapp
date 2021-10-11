@@ -1,1 +1,18 @@
 extends layout
+
+block content
+
+
+  if error
+    p Error getting dynamic content.
+  else
+  div.header=title
+    each item in items
+      div.card(style = 'display:flex;flex-direction:column;' )
+        p.card-header  #{item.nutrient.name}
+        p.card  #{item.amount}
+        //- p
+        //- each n in item.foodNutrients
+        //-     if n.name == 'Energy' || n.name == 'Protein'   || n.nutrientId == 1005 
+        //-         h6.list-group-item #{n.name == 'Energy' ? "Calories" : n.nutrientId == 1005 ? 'Carbohydrates' : n.name} : #{n.value}      
+

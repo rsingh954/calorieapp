@@ -32,9 +32,22 @@ router.post('/search', async function(req, res, next){
 })
 
 //ITEM DETAIL PAGE
-router.get('/food/:id' ,function(req,res,next){
-
-  res.render('item-detail')
+router.get('/food/:id' ,async function(req,res,next){
+  console.log(req.body)
+  const url ='https://api.nal.usda.gov/fdc/v1/food/'+req.params.id+'?api_key='+`${API_KEY}`;
+  const options = {
+    'method': "GET"
+  };
+  const result = await fetch(url, options)
+  .then((r) => r.json())
+  .catch(e => {
+    console.error({
+    'message': "item not found",
+     error: e
+    })
+  })
+  console.log(result.description)
+  res.render('item-detail',{title: result.description, items: result.foodNutrients})
 })
 
 module.exports = router

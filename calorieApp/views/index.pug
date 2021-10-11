@@ -9,7 +9,20 @@ block content
       h1= title
       p=date
       header 
-      
+      h6 #{items.date}
+      each item in items
+        div.card-w-75 
+          .card-body 
+            div.card-header #{item.date}
+          div.card-w-75
+            each m in item.foods
+              div.card-header #{m.name}
+              li.list-group-item Calories: #{m.calories}
+              li.list-group-item Protein: #{m.protein}
+              li.list-group-item Carbohydrates: #{m.carbohydrates}
+              
+            
+        
 
 
 
