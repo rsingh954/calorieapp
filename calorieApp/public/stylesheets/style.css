@@ -8,12 +8,16 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 header{
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
   background-color: #7e57c2;
   padding: 5px;
-  
 }
+
 a {
   color: #ffffff ;
+  padding-bottom: 25px;
 }
 
 .panel-heading{

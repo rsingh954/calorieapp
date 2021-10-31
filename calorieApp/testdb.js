@@ -117,7 +117,7 @@ function addJournal(name, date, calories, protein, carbohydrates, cb) {
     mongoose.connection.close();
 }
 
-//addJournal("Hot Cheetos",d, 560, 2, 56,callback);
+addJournal("Spicy Chicken",d, 560, 2, 56,callback);
 
 function updateFood(name, calories, protein, carbohydrates, cb){
   jorunalEntry = {name:name, calories: calories,protein:protein, carbohydrates: carbohydrates}
@@ -140,4 +140,4 @@ function updateFood(name, calories, protein, carbohydrates, cb){
 
 }
 
-updateFood("Bacon", 640, 2, 56,callback);
+// updateFood("Bacon", 640, 2, 56,callback);

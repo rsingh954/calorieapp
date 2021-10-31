@@ -8,20 +8,20 @@ block content
     div.diary 
       h1= title
       p=date
-      header 
+      hr
       h6 #{items.date}
+    div.card-container
       each item in items
         div.card-w-75 
           .card-body 
             div.card-header #{item.date}
-          div.card-w-75
+              div.card-w-75
             each m in item.foods
               div.card-header #{m.name}
-              li.list-group-item Calories: #{m.calories}
-              li.list-group-item Protein: #{m.protein}
-              li.list-group-item Carbohydrates: #{m.carbohydrates}
-              
-            
+              li.list-group-item Calories: #{m.calories}g
+              li.list-group-item Protein: #{m.protein}g
+              li.list-group-item Carbohydrates: #{m.carbohydrates}g
+
         
 
 
