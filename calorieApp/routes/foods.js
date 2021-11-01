@@ -4,10 +4,8 @@ var router = express.Router();
 const fetch = require('node-fetch');
 const journal = require('../helper/journal')
 require('dotenv').config()
-
 const API_KEY = process.env.FOOD_API_KEY
-
-
+const cache = [];
 
 //SEARCH FOR FOOD USING API
 router.get('/search', function(req, res, next){
@@ -33,7 +31,6 @@ router.post('/search', async function(req, res, next){
 
 //ITEM DETAIL PAGE
 router.get('/food/:id' ,async function(req,res,next){
-  console.log(req.body)
   const url ='https://api.nal.usda.gov/fdc/v1/food/'+req.params.id+'?api_key='+`${API_KEY}`;
   const options = {
     'method': "GET"
@@ -46,8 +43,12 @@ router.get('/food/:id' ,async function(req,res,next){
      error: e
     })
   })
-  console.log(result.description)
-  res.render('item-detail',{title: result.description, items: result.foodNutrients})
+  cache.unshift(result)
+  res.render('item-detail',{title: result.description, items: result.foodNutrients, id: result.fdcId})
 })
 
+router.post('/food/:id', (req, res)=>{
+  res.send(req)
+})
 module.exports = router
+module.exports.cache = cache

@@ -1,0 +1,9 @@
+extends layout 
+
+block content
+
+    if(!user)
+        p error 
+    else    
+        .container 
+            h6 #{user.username}

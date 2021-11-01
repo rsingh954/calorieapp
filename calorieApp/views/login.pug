@@ -1,0 +1,16 @@
+extends layout
+block content
+  h1= title
+  if errors
+    .alert.alert-danger     
+       | Invalid Username or Password
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='email') Email:
+      input#email.form-control(type='text', placeholder='Enter Email' name='email' required='true') 
+    div.form-group
+      label(for='password') password:
+      input#password.form-control(type='password', placeholder='Enter password' name='password'  required='true') 
+
+    button.btn.btn-primary(type='submit') Submit
