@@ -1,9 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme+Expanded:wght@200;300&display=swap');
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+a{
 
+}
+.button{
+  transition: all .5s ease;
+  color: #007CC7;
+  border: 3px solid white;
+  font-family:'Montserrat', sans-serif;
+  text-align: center;
+  line-height: 1;
+  font-size: 17px;
+  background-color : transparent;
+  padding: 25px;
+  border-radius: 36px;
+}
+.button:hover {
+  background-color: #001F3F !important;
+  padding: 25px;
+  color: #fff;
+
+}
+a:hover{
+  text-decoration: none;
+}
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -11,8 +35,12 @@ header{
   display: inline-flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #7e57c2;
+  background-color: #12232E;
   padding: 5px;
+}
+
+.date{
+  text-align: left !important;
 }
 
 a {
@@ -22,4 +50,107 @@ a {
 
 .panel-heading{
   color: #111111  ;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.card-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+.card-body{
+  display: flex;
+  flex-direction: column;
+}
+.card{
+  margin: 8px 0;
+}
+.card-header{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/*HIDE FORM*/
+#date, #itemid{
+  visibility: hidden;
+  display: none;
+}
+
+/* SEARCH STYLE */
+.form-search{
+  display: flex;
+  margin: 32px;
+  gap: 16px;
+  align-items: center;
+}
+#name{
+  max-width: 180px;
+}
+.search-icon{
+  max-width: 32px;
+  max-height: 32px;
+}
+
+.nutrient-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 32px 0;
+}
+
+
+ /* Dropdown Button */
+ .dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;} 
+.hide{
+  display: none;
 }

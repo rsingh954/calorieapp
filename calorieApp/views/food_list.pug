@@ -1,11 +1,12 @@
 extends layout
 
-block content
 
+block content
+ 
   if error
     p Error getting dynamic content.
   else
-  div.container
+  div.card-body
     each item, i in items
         div.panel
           a.panel-heading.heading(href = 'food/'+item.fdcId )  #{item.description}

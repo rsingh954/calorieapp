@@ -39,7 +39,7 @@ app.use(session({
     mongooseConnection: mongoose.connection
   }),
 }))
-//AUTH MIDDLEWARE
+//AUTH MIDDLEWARE 
 app.use(auth.initialize);
 app.use(auth.session);
 app.use(auth.setUser);

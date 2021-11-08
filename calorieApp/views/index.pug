@@ -4,8 +4,7 @@ block content
   if error
     p Error getting dynamic content.
   else
-  a(href='/journal' class = 'panel-heading') Add a Journal 
-  .container(style = "padding:5px;")
+  .container
     div.diary 
       h1= title
       p=date
@@ -13,18 +12,20 @@ block content
       h6 #{items.date}
     div.card-container
       each item in items
-        div.card-w-75 
           .card-body 
-            div.card-header #{item.date}
-              div.card-w-75
+            div(class = 'card-header date') #{item.date}
             each m in item.foods
-              div.card-header #{m.name}
-              li.list-group-item Calories: #{m.calories}g
-              li.list-group-item Protein: #{m.protein}g
-              li.list-group-item Carbohydrates: #{m.carbohydrates}g
+              div.card
+                div.card-header #{m.name}
+                  form(action="", method="post") 
+                    input#itemid.form-control( name='itemid', required='true', value=m._id) 
+                    input#date.form-control(name='date', required='true', value=item.date) 
+                    button(type="submit") Delete
+                li.list-group-item Calories: #{m.calories} cal
+                li.list-group-item Protein: #{m.protein}g
+                li.list-group-item Carbohydrates: #{m.carbohydrates}g
 
         
-
 
 
 
