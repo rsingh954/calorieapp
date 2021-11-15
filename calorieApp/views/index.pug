@@ -11,8 +11,8 @@ block content
       hr
       h6 #{items.date}
     div.card-container
-      each item in items
-          .card-body 
+      each item in items 
+          .card-body  
             div(class = 'card-header date') #{item.date}
             each m in item.foods
               div.card
@@ -20,7 +20,7 @@ block content
                   form(action="", method="post") 
                     input#itemid.form-control( name='itemid', required='true', value=m._id) 
                     input#date.form-control(name='date', required='true', value=item.date) 
-                    button(type="submit") Delete
+                    button( type="submit") Delete
                 li.list-group-item Calories: #{m.calories} cal
                 li.list-group-item Protein: #{m.protein}g
                 li.list-group-item Carbohydrates: #{m.carbohydrates}g

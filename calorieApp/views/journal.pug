@@ -1,3 +1,21 @@
 extends layout 
 
+block content
+  if error
+    p Error getting dynamic content.
+  else
+    div.card-container
+    each item in items 
+        .card-body  
+          div(class = 'card-header date') #{item.date}
+          each m in item.foods
+            div.card
+              div.card-header #{item.name}
+                form(action="", method="post") 
+                  input#itemid.form-control( name='itemid', required='true', value=item._id) 
+                  input#date.form-control(name='date', required='true', value=item.date) 
+                  button(type="submit") Delete
+              li.list-group-item Calories: #{item.calories} cal
+              li.list-group-item Protein: #{item.protein}g
+              li.list-group-item Carbohydrates: #{item.carbohydrates}g
 

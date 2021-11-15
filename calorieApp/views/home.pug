@@ -1,1 +1,13 @@
 extends layout
+
+block content
+  if error
+    p Error getting dynamic content.
+  else
+    form.container(action="", method="POST")
+      select#name.form-control(name="date").form-control
+        each item in items 
+          option=item.date
+      .btn.col-md-12  
+        input(href='/' type="submit", value='submit').btn.btn-success  
+    
