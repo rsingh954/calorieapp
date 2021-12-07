@@ -9,6 +9,7 @@ var ObjectId = require('mongoose').Types.ObjectId;;
 const { ObjectID } = require('bson');
 
 router.get('/', function(req, res, next) {
+  console.log(res.locals[0] === undefined)
   req.session.visits = req.session.visits ? req.session.visits + 1 : 1;
   if(res.locals.user){
   Journal.find({userId: res.locals.user._id})
@@ -22,8 +23,8 @@ router.get('/', function(req, res, next) {
     })
   res.render('index',{ title: "My Diary", date: d, items: result.sort((a,b) => a > b ? -1:1), user: res.locals.user});
   })
-}else{
-  res.render('home')
+}else if(res.locals[0] === undefined){
+  res.redirect('/users/registration')
 }
 });
 
