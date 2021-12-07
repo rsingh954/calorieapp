@@ -27,7 +27,9 @@ router.get('/', function(req, res, next) {
 }
 });
 
-
+//FIX DELETION WHEN USER HAS ONE FOOD ITEM
+//IF USER HAS ONE FOOD ITEM DELETE THE WHOLE JOURNAL
+//ACCOMPLISHED WITH JOURNAL.LENGTH???
 router.post('/', async function(req, res, next){
   let myId = ObjectId(req.body.itemid);
   Journal.findOneAndUpdate({
@@ -46,7 +48,7 @@ router.post('/', async function(req, res, next){
         }else{
          console.log(result)
         }
-      })
+      }).
   res.redirect('/')
  })
 

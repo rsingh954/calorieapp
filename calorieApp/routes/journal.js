@@ -13,7 +13,6 @@ router.get('/', async (req, res, err)=>{
     }
     res.redirect('/')
 })
-//CHANGE TO POST ROUTE && FIX JOURNAL ERROR
 router.get('/:id/add', async (req, res, next)=>{
     const foodName = cache.cache[0].description
     const foodNutrients = cache.cache[0].foodNutrients

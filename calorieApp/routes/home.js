@@ -6,9 +6,9 @@ let async = require("async");
 let d = Date().toString().split(" ")[0] + " " + Date().toString().split(" ")[1] + " " +Date().toString().split(" ")[2];
 const Mongoose = require('mongoose');
 var ObjectId = require('mongoose').Types.ObjectId;;
-const { ObjectID } = require('bson');
 
 
+//NEED TO FIX IF NO USER IS LOGGED IN WOW!!!
 router.get('/', function(req, res, next) {
     req.session.visits = req.session.visits ? req.session.visits + 1 : 1;
     if(res.locals.user){
@@ -22,11 +22,6 @@ router.get('/', function(req, res, next) {
   }
   
 })
-
-// router.get('/:date', function(req, res, next){
-//     res.redirect('/')
-//   })
-  
 
 router.post('/', function(req, res, next){
     req.session.visits = req.session.visits ? req.session.visits + 1 : 1;
