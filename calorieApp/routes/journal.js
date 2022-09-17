@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Journal = require('../models/Journal')
-const cache = require('./foods')
+const cache = require('../controllers/foodController')
 
 let d = Date().toString().split(" ")[0] + " " + Date().toString().split(" ")[1] + " " +Date().toString().split(" ")[2];
 
@@ -14,6 +14,7 @@ router.get('/', async (req, res, err)=>{
     res.redirect('/')
 })
 router.get('/:id/add', async (req, res, next)=>{
+    console.log(cache[0])
     const foodName = cache.cache[0].description
     const foodNutrients = cache.cache[0].foodNutrients
     let protein;
