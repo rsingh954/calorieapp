@@ -2,7 +2,7 @@
   "name": "calorieapp",
   "version": "0.0.0",
   "private": true,
-  "main": "./bin/www",
+  "main": "./app.js",
   "engines": {
     "node": "14.x"
   },
