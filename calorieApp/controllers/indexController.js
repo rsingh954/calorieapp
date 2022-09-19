@@ -18,7 +18,7 @@ const display_index_data = function(req, res, next) {
       let sum = 0;
       let foodies = resArray.forEach((food) => {
         let foods = food.foods
-        // sum += Number(foods[0].calories) === undefined ? 0 : Number(foods[0].calories)
+        sum += Number(!foods[0]) ? 0 : Number(foods[0].calories)
       })
     res.render('index',{ title: "My Diary", date: d, items: result.sort((a,b) => a > b ? -1:1), user: res.locals.user});
     })

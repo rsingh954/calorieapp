@@ -4,16 +4,19 @@ const UserModel = require('../models/User');
 const Journal = require('../models/Journal');
 let async = require("async");
 const passport = require('passport')
+
 //CHECK IF USER IS LOGGED IN
 function redirectIfLoggedIn(req, res, next){
-  if(req.user) return res.redirect('/users/account');
+  console.log(req.body)
+  if(req.user) return res.redirect('/login');
   return next();
 }
 
 /*REGISTRATION PAGE */
-router.get('/registration',redirectIfLoggedIn, (req, res, next) => res.render('registration', {success: req.query.success, title: "Sign Up"}))
+router.get('/registration', (req, res, next) => res.render('registration', {success: req.query.success, title: "Sign Up"}))
 
-router.post('/registration', async (req, res, next) => {
+//we gotta login
+router.post('/registration',redirectIfLoggedIn, async (req, res, next) => {
   try{
     const user = new UserModel({
       name: req.body.name,
@@ -21,17 +24,22 @@ router.post('/registration', async (req, res, next) => {
       email: req.body.email,
       password: req.body.password,
     })
-    const savedUser = await user.save();
+    const savedUser =  await user.save();
+    console.log(savedUser)
     if(savedUser){ 
-      return res.redirect('/login')
+      redirectIfLoggedIn(req, res, next)
+      return res.redirect("/login")
     }
     return next(new Error('Failed to save user'))
   }catch(err){
     return next(err)
   }
 });
+
+
+
 //LOGIN 
-router.get('/login',redirectIfLoggedIn, (req, res)=>{
+router.get('/login', (req, res)=>{
   res.render('login', {title: 'Log In', errors: req.query.error})
 })
 router.post('/login', passport.authenticate('local', {
