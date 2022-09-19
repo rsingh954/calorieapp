@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "framework": "pug",
     "builds" : [
         {
             "src": "./app.js",
