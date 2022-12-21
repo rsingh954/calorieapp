@@ -8,6 +8,15 @@ const Mongoose = require('mongoose');
 var ObjectId = require('mongoose').Types.ObjectId;;
 const { ObjectID } = require('bson');
 
+
+/*
+
+  TODO
+  - redirect to a landing page
+  
+*/
+//we redirect to a home page
+
 const display_index_data = function(req, res, next) {
     req.session.visits = req.session.visits ? req.session.visits + 1 : 1;
     if(res.locals.user){
