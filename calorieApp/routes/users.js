@@ -15,7 +15,7 @@ function redirectIfLoggedIn(req, res, next){
 /*REGISTRATION PAGE */
 router.get('/registration', (req, res, next) => res.render('registration', {success: req.query.success, title: "Sign Up"}))
 
-//we gotta login
+
 router.post('/registration',redirectIfLoggedIn, async (req, res, next) => {
   try{
     const user = new UserModel({

@@ -4,7 +4,11 @@ block content
   if errors
     .alert.alert-danger     
        | Invalid Username or Password
-
+  div 
+    h2 guests use the credentials below
+    h3 email: guest@gmail.com
+    h3 password: password123.
+    br
   form(method='POST' action='')
     div.form-group
       label(for='email') Email:
