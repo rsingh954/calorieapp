@@ -15,7 +15,7 @@ passport.use(new LocalStrategy({usernameField: 'email'}, async (username, passwo
         }
         return done(null, user)
     }catch(err){
-
+        return done(err)
     }
 }))
 
@@ -27,6 +27,7 @@ passport.deserializeUser(async (id, done)=>{
     try{
         //LOAD USER FROM DB
         const user = await userModel.findById(id).exec();
+        if(!user) return done(null, false);
         return done(null, user);
     }catch(err){
         return done(err)

@@ -39,12 +39,16 @@ let UserSchema = new Schema(
         }, 
         caloricGoal: {
             type: Number, 
+            required: false
         },
         currentWeight: {
             type: Number, 
+            required: false
+
         },
         goalWeight: {
             type: Number,
+            required: false
         }
     },
     {

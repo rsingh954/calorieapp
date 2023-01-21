@@ -1,40 +1,44 @@
 var express = require('express');
 var router = express.Router();
-const UserModel = require('../models/User');
+const User = require('../models/User');
 const Journal = require('../models/Journal');
 let async = require("async");
 const passport = require('passport')
 
-//CHECK IF USER IS LOGGED IN
-function redirectIfLoggedIn(req, res, next){
-  console.log(req.body)
-  if(req.user) return res.redirect('/login');
-  return next();
+function redirectIfLoggedIn(req, res, next) {
+  if (req.session.user) {
+    return res.redirect('/home');
+  }
+  next();
 }
 
 /*REGISTRATION PAGE */
-router.get('/registration', (req, res, next) => res.render('registration', {success: req.query.success, title: "Sign Up"}))
+router.get('/registration', redirectIfLoggedIn, (req, res, next) => res.render('registration', {success: req.query.success, title: "Sign Up"}))
 
 
-router.post('/registration',redirectIfLoggedIn, async (req, res, next) => {
-  try{
-    const user = new UserModel({
+router.post('/registration', async (req, res, next) => {
+  try {
+    const user = new User({
       name: req.body.name,
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
-    })
-    const savedUser =  await user.save();
-    console.log(savedUser)
-    if(savedUser){ 
-      redirectIfLoggedIn(req, res, next)
+    });
+    const savedUser = await user.save();
+    if (savedUser._id) {
+      console.log("success");
+      // Log the user in
+      req.login(savedUser, (err) => {
+        if (err) return next(err);
+        return res.redirect('/home');
+      });
+    } else {
+      return next(new Error('Failed to save user'));
     }
-    return next(new Error('Failed to save user'))
-  }catch(err){
-    return next(err)
+  } catch (err) {
+    return next(err);
   }
 });
-
 
 
 //LOGIN 
