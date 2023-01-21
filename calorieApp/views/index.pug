@@ -14,10 +14,11 @@ block content
       each item in items 
           .card-body  
             div(class = 'card-header date') #{item.date}
+              Total Calories:  #{item.total} 
             each m in item.foods
               div.card
                 div.card-header #{m.name}
-                  form(action="", method="post") 
+                  form.delete_btn(action="", method="post") 
                     input#itemid.form-control( name='itemid', required='true', value=m._id) 
                     input#date.form-control(name='date', required='true', value=item.date) 
                     button( type="submit") Delete

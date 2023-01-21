@@ -64,7 +64,6 @@ a {
   display: flex;
   justify-content: center;
   flex-direction: column;
-
 }
 .card-body{
   display: flex;
@@ -72,14 +71,34 @@ a {
 }
 .card{
   margin: 8px 0;
+  border: none;
 }
 .card-header{
   text-align: center;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   gap: 25px;
+  background-color: white !important;
 }
+.delete_btn{
+  padding: 0;
+  max-width: 60px;
+  margin: 0;
+  border-radius: 0;
+  font-family: inherit;
+  border-radius: 12px;
+  background-color: white;
 
+}
+.delete_btn > button{
+  background-color: white;
+  padding: 8px;
+  border-radius: 12px;
+}
+.list-group-item{
+  border: none;
+}
 /*HIDE FORM*/
 #date, #itemid{
   visibility: hidden;

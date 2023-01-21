@@ -31,9 +31,11 @@ let JournalSchema = new Schema({
         carbohydrates:{
             type: Number,
             trim: true,
-        },
+        }
     }],
-
+    total: {
+        type: Number
+    }
 })
 
 module.exports =mongoose.model('Journal', JournalSchema);

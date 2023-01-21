@@ -46,7 +46,6 @@ const add_food_to_journal = async (req, res, next)=>{
                 journal.userId = res.locals.user._id
                 journal.date =  d;
                 journal.foods.push(jorunalEntry)
-        
                 journal.save(function (err){
                     if(err){return next(err); }
                 })
