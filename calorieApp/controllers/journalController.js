@@ -70,6 +70,7 @@ const add_food_to_journal = async (req, res, next)=>{
             }
         }
         })
+        return res.locals.user._id
     }
     console.log('user is ' + user())
     res.redirect('/')

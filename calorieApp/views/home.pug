@@ -4,10 +4,17 @@ block content
   if error
     p Error getting dynamic content.
   else
-    form.container(action="", method="POST")
-      select#name.form-control(name="date").form-control
-        each item in items 
-          option=item.date
-      .btn.col-md-12  
-        input(href='/' type="submit", value='submit').btn.btn-success  
+    if items.length <= 0
+      div 
+        p Get started by adding something to your journal!
+        a(href='/foods/search') Search for food
+    else
+      h1 Select a journal to view it
+      form.journal_selection(action="", method="POST")
+        select#name.form-control(name="date").form-control
+          each item in items 
+            option=item.date
+        hr
+        .btn.col-md-12  
+          input(href='/' type="submit", value='Submit').btn.btn-success  
     

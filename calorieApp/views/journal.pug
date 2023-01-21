@@ -14,7 +14,7 @@ block content
                 form(action="", method="post") 
                   input#itemid.form-control( name='itemid', required='true', value=item._id) 
                   input#date.form-control(name='date', required='true', value=item.date) 
-                  button(type="submit") Delete
+                  button(type="submit" clas='button') Delete
               li.list-group-item Calories: #{item.calories} cal
               li.list-group-item Protein: #{item.protein}g
               li.list-group-item Carbohydrates: #{item.carbohydrates}g

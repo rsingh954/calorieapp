@@ -29,7 +29,6 @@ const food_search = async function(req, res, next){
         error: e
        })
      })
-      const foods = result.foods;
       res.render('food_list',{items: result.foods, errors: error})
   }
 
