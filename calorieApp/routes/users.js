@@ -28,7 +28,6 @@ router.post('/registration',redirectIfLoggedIn, async (req, res, next) => {
     console.log(savedUser)
     if(savedUser){ 
       redirectIfLoggedIn(req, res, next)
-      return res.redirect("/login")
     }
     return next(new Error('Failed to save user'))
   }catch(err){

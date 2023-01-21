@@ -4,17 +4,16 @@ block content
   if errors
     .alert.alert-danger     
        | Invalid Username or Password
-  div 
-    h2 guests use the credentials below
-    h3 email: guest@gmail.com
-    h3 password: password123.
-    br
+
   form(method='POST' action='')
+    div 
+      h3 Guests use the credentials below:
+      p email: guest@gmail.com
+      p password: password123.
+    br
     div.form-group
-      label(for='email') Email:
-      input#email.form-control(type='text', placeholder='Enter Email' name='email' required='true') 
+      input#email.form-control(type='text', placeholder='Email' name='email' required='true') 
     div.form-group
-      label(for='password') password:
-      input#password.form-control(type='password', placeholder='Enter password' name='password'  required='true') 
+      input#password.form-control(type='password', placeholder='Password' name='password' required='true') 
 
     button.btn.btn-primary(type='submit') Submit
