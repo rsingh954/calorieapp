@@ -1,30 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=BioRhyme+Expanded:wght@200;300&display=swap');
-*{
+
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-.button{
+
+.button {
   transition: all .5s ease;
   color: #007CC7;
   border: 3px solid white;
-  font-family:'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   line-height: 1;
   font-size: 17px;
-  background-color : transparent;
+  background-color: transparent;
   padding: 25px;
   border-radius: 36px;
 }
+
 .button:hover {
   background-color: #001F3F !important;
   padding: 25px;
   color: #fff;
 
 }
-a:hover{
+
+a:hover {
   text-decoration: none;
 }
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   height: 100vh;
@@ -33,7 +38,8 @@ body {
   align-items: center;
 
 }
-header{
+
+header {
   display: inline-flex;
   justify-content: space-around;
   align-items: center;
@@ -41,39 +47,44 @@ header{
   padding: 5px;
 }
 
-.date{
+.date {
   text-align: left !important;
 }
 
 a {
-  color: #ffffff ;
+  color: #ffffff;
   padding-bottom: 25px;
 }
 
-.panel-heading{
-  color: #111111  ;
+.panel-heading {
+  color: #111111;
 }
-.container{
+
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
 }
-.card-container{
+
+.card-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-.card-body{
+
+.card-body {
   display: flex;
   flex-direction: column;
 }
-.card{
+
+.card {
   margin: 8px 0;
   border: none;
 }
-.card-header{
+
+.card-header {
   text-align: center;
   display: flex;
   justify-content: space-between;
@@ -81,7 +92,8 @@ a {
   gap: 25px;
   background-color: white !important;
 }
-.delete_btn{
+
+.delete_btn {
   padding: 0;
   max-width: 60px;
   margin: 0;
@@ -91,33 +103,38 @@ a {
   background-color: white;
 
 }
-.delete_btn > button{
+
+.delete_btn>button {
   background-color: white;
   padding: 8px;
   border-radius: 12px;
 }
-.list-group-item{
+
+.list-group-item {
   border: none;
 }
+
 /*HIDE FORM*/
-#date, #itemid{
+#date,
+#itemid {
   visibility: hidden;
   display: none;
 }
 
 /* SEARCH STYLE */
-.form-search{
+.form-search {
   display: flex;
   margin: 32px;
   gap: 16px;
   align-items: center;
 }
-.search-icon{
+
+.search-icon {
   max-width: 32px;
   max-height: 32px;
 }
 
-.nutrient-container{
+.nutrient-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,7 +142,7 @@ a {
   margin: 32px 0;
 }
 
-.enter{
+.enter {
   color: #111111 !important;
 }
 
@@ -142,9 +159,36 @@ form {
   margin-top: 5%;
 }
 
-.search_container{
+.search_container {
   display: flex;
   flex-direction: column;
   margin-top: 5%;
   max-width: 360px;
+}
+
+a.button1 {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #FFFFFF;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  color: #000000;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+a.button1:hover {
+  color: #FFFFFF;
+  background-color: #001F3F;
+}
+
+@media all and (max-width:30em) {
+  a.button1 {
+    display: block;
+    margin: 0.4em auto;
+  }
 }

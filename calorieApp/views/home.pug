@@ -6,8 +6,8 @@ block content
   else
     if items.length <= 0
       div 
-        p Get started by adding something to your journal!
-        a(href='/foods/search') Search for food
+        h1 Get started by adding something to your journal!
+        a(class = 'button1' href='/foods/search') Search for food
     else
       h1 Select a journal to view it
       form.journal_selection(action="", method="POST")
