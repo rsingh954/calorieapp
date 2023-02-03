@@ -1,23 +1,19 @@
 extends layout
 block content
-  h1= title
   if errors
     .alert.alert-danger     
        | Invalid Username or Password
+  div.body
+    form(method='POST' action='')
+      h1= title 
+      br
+      div.form-group
+        input#email.form-control(class = 'mail' type='email'  placeholder='Email' name='email' ) 
+      div.form-group
+        input#password.form-control(type='password' placeholder='Password' name='password' ) 
 
-  form(method='POST' action='')
-    div 
-      h1 Guests use the credentials below:
-      p email: guest@gmail.com
-      p password: password123.
-    br
-    div.form-group
-      input#email.form-control(class = 'mail' type='email'  placeholder='Email' name='email' ) 
-    div.form-group
-      input#password.form-control(type='password' placeholder='Password' name='password' ) 
-
-    button.btn.btn-primary(type='submit') Submit
-  button.btn.btn-secondary(type='submit' id='guest-login') Login as Guest
+      button.btn.btn-primary(type='submit') Submit
+    button.btn.btn-primary(id='guest-login') Login as Guest
 
 
     script.
