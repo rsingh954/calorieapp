@@ -42,13 +42,30 @@ router.post('/registration', async (req, res, next) => {
 
 
 //LOGIN 
-router.get('/login', (req, res)=>{
-  res.render('login', {title: 'Log In', errors: req.query.error})
+router.get('/login',redirectIfLoggedIn, (req, res)=>{
+  if (req.user) {
+    res.redirect('/');
+  } else {
+    res.render('login', { title: 'Log In', errors: req.query.error });
+  }  
 })
-router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/users/login?error=true',
-}))
+// router.post('/login',  passport.authenticate('local', {
+//   successRedirect: '/',
+//   failureRedirect: '/users/login?error=true',
+// }))
+router.post('/login', (req, res, next) => {
+  console.log('Received request:', req.body);
+  passport.authenticate('local', (err, user, info) => {
+    if (err) { return next(err); }
+    console.log(info)
+    if (!user) { return res.redirect('/users/login?error=true'); }
+    req.logIn(user, (err) => {
+      if (err) { return next(err); }
+      console.log('Redirecting...')
+      return res.redirect('/');
+    });
+  })(req, res, next);
+});
 
 //LOGAHT
 router.get('/logout', (req,res)=>{

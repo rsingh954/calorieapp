@@ -7,13 +7,36 @@ block content
 
   form(method='POST' action='')
     div 
-      h3 Guests use the credentials below:
+      h1 Guests use the credentials below:
       p email: guest@gmail.com
       p password: password123.
     br
     div.form-group
-      input#email.form-control(type='text' value='guest@gmail.com' placeholder='Email' name='email' required='true') 
+      input#email.form-control(class = 'mail' type='email'  placeholder='Email' name='email' ) 
     div.form-group
-      input#password.form-control(type='password' value='password123.'  placeholder='Password' name='password' required='true') 
+      input#password.form-control(type='password' placeholder='Password' name='password' ) 
 
     button.btn.btn-primary(type='submit') Submit
+  button.btn.btn-secondary(type='submit' id='guest-login') Login as Guest
+
+
+    script.
+      document.getElementById('guest-login').addEventListener('click', function() {
+        console.log("here")
+        fetch('/users/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email: 'guest@gmail.com', password: 'password123.' })
+        })
+          .then(response => {
+            console.log('Success:', response);
+            if (response.status === 200) {
+              window.location.replace('/');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      });

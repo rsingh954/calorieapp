@@ -33,7 +33,6 @@ const display_index_data = function (req, res, next) {
         j.total += sum
         console.log(sum)
       }
-      console.log(result)
       res.render("index", {
         title: "My Diary",
         date: d,
